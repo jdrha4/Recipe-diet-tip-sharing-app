@@ -1,0 +1,44 @@
+﻿@model Recipe
+
+@{
+	ViewData["Title"] = "Recipe - Create";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Nazov">Nazov</label>
+		<input class="form-control" asp-for="Nazov">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Popis">Popis</label>
+		<input class="form-control" asp-for="Popis">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Preferencia">Preferencia</label>
+		<input class="form-control" asp-for="Preferencia">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Obtiaznost">Obtiaznost</label>
+		<input class="form-control" asp-for="Obtiaznost">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Ingrediencie">Ingrediencie</label>
+		<input class="form-control" asp-for="Ingrediencie">
+	</div>
+
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="VegetarianskeJedlo">VegetarianskeJedlo</label>
+		<input class="form-check" asp-for="VegetarianskeJedlo">
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

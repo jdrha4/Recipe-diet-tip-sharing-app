@@ -1,0 +1,33 @@
+﻿@model Recipe
+
+<h2>Edit Recipe</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Nazov"></label>
+        <input asp-for="Nazov" class="form-control" />
+    </div>
+<div class="form-group">
+		<label asp-for="Popis"></label>
+		<input asp-for="Popis" class="form-control" />
+</div>
+<div class="form-group">
+<label asp-for="Preferencia"></label>
+		<input asp-for="Preferencia" class="form-control" />
+</div>
+<div class="form-group">
+<label asp-for="Obtiaznost"></label>
+    <input asp-for="Obtiaznost" class="form-control" />
+</div>
+<div class="form-group">
+<label asp-for="Ingrediencie"></label>
+	<input asp-for="Ingrediencie" class="form-control" />
+</div>
+<div class="form-group">
+        <label class="form-label" asp-for="VegetarianskeJedlo">VegetarianskeJedlo</label>
+        <input class="form-check" asp-for="VegetarianskeJedlo">
+</div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

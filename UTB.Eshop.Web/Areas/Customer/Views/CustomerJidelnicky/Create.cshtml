@@ -1,0 +1,44 @@
+﻿@model Jidelnicek
+
+@{
+	ViewData["Title"] = "Jidelnicek - Create";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Nazov">Nazov</label>
+		<input class="form-control" asp-for="Nazov">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Popis">Popis</label>
+		<input class="form-control" asp-for="Popis">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Preferencia">Preferencia</label>
+		<input class="form-control" asp-for="Preferencia">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Ranajky">Ranajky</label>
+		<input class="form-control" asp-for="Ranajky">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Obed">Obed</label>
+		<input class="form-control" asp-for="Obed">
+	</div>
+
+
+	<div class="mb-3">
+		<label class="form-label" asp-for="Vecera">Vecera</label>
+		<input class="form-control" asp-for="Vecera">
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

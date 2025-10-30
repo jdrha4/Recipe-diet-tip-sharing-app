@@ -1,0 +1,60 @@
+﻿@model List<Recipe>  
+
+@{
+    ViewData["Title"] = "My Recipes";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex align-items-center">
+                <h1 class="display-4 me-4" style="color: #28a745;">Moje Recepty</h1>
+                <!-- Add your green soft visuals styles here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Recipes -->
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="container">
+            <div class="row">
+                @foreach (var recipe in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">@recipe.Nazov</h5>
+                                <p class="card-text">@recipe.Popis</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Preferencia: @recipe.Preferencia</li>
+                                <li class="list-group-item">Obtiaznost: @recipe.Obtiaznost</li>
+                                <li class="list-group-item">Ingredients: @recipe.Ingrediencie</li>
+                                <li class="list-group-item">Vegetarian: @(recipe.VegetarianskeJedlo ? "Yes" : "No")</li>
+                            </ul>
+                        </div>
+                    </div>
+                    if (Model.IndexOf(recipe) % 3 == 2)
+                    {
+                        @:</div><div class="row">
+                    }
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>No recipes available.</p>
+    }
+
+    @section Styles
+    {
+        <!-- Add any additional styles needed for your recipe display -->
+    }
+
+    @section Scripts
+    {
+        <!-- Add any additional scripts needed for your recipe display -->
+    }
+</div>

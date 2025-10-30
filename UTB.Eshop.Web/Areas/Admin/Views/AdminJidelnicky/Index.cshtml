@@ -1,0 +1,52 @@
+﻿@model IList<Jidelnicek>
+
+@{
+    ViewData["Title"] = "Manage All Jidelnicky";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-responsive table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@nameof(Jidelnicek.Id)</th>
+                <th>@nameof(Jidelnicek.Nazov)</th>
+                <th>@nameof(Jidelnicek.Popis)</th>
+                <th>@nameof(Jidelnicek.Preferencia)</th>
+                <th>@nameof(Jidelnicek.Ranajky)</th>
+                <th>@nameof(Jidelnicek.Obed)</th>
+                <th>@nameof(Jidelnicek.Vecera)</th>
+                <th>Action</th>
+                <th>Edit</th> <!-- Add a new column header for the Edit button -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nazov</td>
+                    <td>@item.Popis</td>
+                    <td>@item.Preferencia</td>
+                    <td>@item.Ranajky</td>
+                    <td>@item.Obed</td>
+                    <td>@item.Vecera</td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Jidelnicek?')">Delete</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminJidelnicky" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>No Jidelnicky to manage!</h2>
+}

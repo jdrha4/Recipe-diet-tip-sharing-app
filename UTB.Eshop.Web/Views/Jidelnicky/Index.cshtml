@@ -1,0 +1,78 @@
+﻿@model JidelnickyViewModel
+
+@{
+    ViewData["Title"] = "Jidelnicky";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex align-items-center">
+                <h1 class="display-4 me-4" style="color: #28a745;">Jedálničky</h1>
+                <!-- Add your green soft visuals styles here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <p class="lead">
+            Vytvorte si vlastné jedálničky podľa svojich preferencií a potrieb. Naša platforma vám umožní plánovať jedlá na celý týždeň,
+            sledovať kalorický príjem a zlepšiť svoje stravovacie návyky. Buďte majster svojho jedálnička!
+        </p>
+    </div>
+
+    <!-- Search Form -->
+    <div class="container mt-3">
+        <form method="get" action="@Url.Action("Index")">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search jidelnicky..." name="searchTerm">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    
+    @if (Model != null && Model.Jidelnicky != null && Model.Jidelnicky.Count > 0)
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Jidelnicky)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Nazov:</strong> @item.Nazov</h5>
+                            <p class="card-text"><strong>Popis:</strong> @item.Popis</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Preferencia: @item.Preferencia</small><br>
+                            <small class="text-muted">Ranajky: @item.Ranajky</small><br>
+                            <small class="text-muted">Obed: @item.Obed</small><br>
+                            <small class="text-muted">Vecera: @item.Vecera</small>
+                        </div>
+                    </div>
+                </div>
+                if (Model.Jidelnicky.IndexOf(item) % 3 == 2)
+                {
+                    @:</div><div class="row">
+                }
+            }
+        </div>
+    </div>
+}
+
+
+    else
+    {
+        <p>No jidelnicky available.</p>
+    }
+
+    @section Styles
+    {
+        <!-- Add any additional styles needed for your recipe display -->
+    }
+
+    @section Scripts
+    {
+        <!-- Add any additional scripts needed for your recipe display -->
+    }

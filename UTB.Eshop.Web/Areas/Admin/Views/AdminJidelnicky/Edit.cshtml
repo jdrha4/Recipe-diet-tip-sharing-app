@@ -1,0 +1,31 @@
+﻿@model Jidelnicek
+
+<h2>Edit Jidelnicek</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Nazov"></label>
+        <input asp-for="Nazov" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Popis"></label>
+        <input asp-for="Popis" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Preferencia"></label>
+        <input asp-for="Preferencia" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Ranajky"></label>
+        <input asp-for="Ranajky" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Obed"></label>
+        <input asp-for="Obed" class="form-control" />
+    </div><div class="form-group">
+        <label asp-for="Vecera"></label>
+        <input asp-for="Vecera" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

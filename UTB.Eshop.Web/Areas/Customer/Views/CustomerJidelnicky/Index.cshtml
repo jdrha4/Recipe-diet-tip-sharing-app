@@ -1,0 +1,42 @@
+﻿@model IList<Jidelnicek>
+@{
+    ViewData["Title"] = "My Jidelnicky";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<br />
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Nazov:</strong> @item.Nazov</h5>
+                            <p class="card-text"><strong>Popis:</strong> @item.Popis</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Preferencia: @item.Preferencia</small><br>
+                            <small class="text-muted">Ranajky: @item.Ranajky</small><br>
+                            <small class="text-muted">Obed: @item.Obed</small><br>
+                            <small class="text-muted">Vecera: @item.Vecera</small>
+                        </div>
+                    </div>
+                </div>
+                if (Model.IndexOf(item) % 3 == 2)
+                {
+                    @:</div><div class="row">
+                }
+            }
+        </div>
+    </div>
+}
+else
+{
+    <h2>Jidelnicky are empty!</h2>
+}
